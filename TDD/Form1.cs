@@ -16,5 +16,12 @@ namespace TDD
         {
             InitializeComponent();
         }
+
+        private void car_info_Click(object sender, EventArgs e)
+        {
+            CarForm carForm = new CarForm();
+            carForm.Show();
+
+        }
     }
 }
