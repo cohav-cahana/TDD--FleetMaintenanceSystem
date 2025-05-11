@@ -25,7 +25,10 @@ namespace TDD
         }
         public double CalculateAverageYear()
         {
-            throw new NotImplementedException();
+            if (vehicles.Count == 0)
+                return 0;
+
+            return vehicles.Average(v => v.Year);
         }
 
 
