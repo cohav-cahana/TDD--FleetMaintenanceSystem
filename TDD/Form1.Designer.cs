@@ -30,6 +30,7 @@
         {
             this.car_info = new System.Windows.Forms.Button();
             this.track_random = new System.Windows.Forms.Button();
+            this.btn_all_cars = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // car_info
@@ -51,11 +52,22 @@
             this.track_random.Text = "מעקב אחרי תחזוקה";
             this.track_random.UseVisualStyleBackColor = true;
             // 
+            // btn_all_cars
+            // 
+            this.btn_all_cars.Location = new System.Drawing.Point(369, 343);
+            this.btn_all_cars.Name = "btn_all_cars";
+            this.btn_all_cars.Size = new System.Drawing.Size(182, 45);
+            this.btn_all_cars.TabIndex = 2;
+            this.btn_all_cars.Text = "הצגת כל הרכבים הקיימים";
+            this.btn_all_cars.UseVisualStyleBackColor = true;
+            this.btn_all_cars.Click += new System.EventHandler(this.btn_all_cars_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_all_cars);
             this.Controls.Add(this.track_random);
             this.Controls.Add(this.car_info);
             this.Name = "Form1";
@@ -68,6 +80,7 @@
 
         private System.Windows.Forms.Button car_info;
         private System.Windows.Forms.Button track_random;
+        private System.Windows.Forms.Button btn_all_cars;
     }
 }
 

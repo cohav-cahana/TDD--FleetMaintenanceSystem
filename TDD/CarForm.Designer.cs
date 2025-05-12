@@ -129,6 +129,7 @@
             this.btnAddCar.TabIndex = 9;
             this.btnAddCar.Text = "ADD CAR";
             this.btnAddCar.UseVisualStyleBackColor = true;
+            this.btnAddCar.Click += new System.EventHandler(this.btnAddCar_Click);
             // 
             // txtCarNumber
             // 

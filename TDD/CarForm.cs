@@ -12,9 +12,11 @@ namespace TDD
 {
     public partial class CarForm : Form
     {
-        public CarForm()
+        FleetManager manager;
+        public CarForm(FleetManager fleetManager)
         {
             InitializeComponent();
+            this.manager = fleetManager;
         }
 
         private void CarForm_Load(object sender, EventArgs e)
@@ -28,5 +30,40 @@ namespace TDD
             cmbStatus.Items.AddRange(new string[] { "Fixed", "Needs Repair" });
 
         }
+
+        
+            private void btnAddCar_Click(object sender, EventArgs e)
+        {
+            string id = txtCarNumber.Text;
+            string model = txtModel.Text;
+            string company = txtCompany.Text;
+            int year = (int)cmbYear.SelectedItem;
+            string type = cmbType.SelectedItem.ToString();
+            string status = cmbStatus.SelectedItem.ToString();
+
+            Vehicle newVehicle = new Vehicle
+            {
+                ID = int.Parse(id),
+                Model = model,
+                Manufacturer = company,
+                Year = year,
+                Type = type,
+                MaintenanceStatus = status
+            };
+
+            manager.AddVehicle(newVehicle);
+
+            MessageBox.Show("Vehicle added successfully!");
+            txtCarNumber.Text = "";
+            txtModel.Text = "";
+            txtCompany.Text = "";
+            cmbYear.SelectedIndex = -1;
+            cmbType.SelectedIndex = -1;
+            cmbStatus.SelectedIndex = -1;
+
+
+        }
+
     }
 }
+

@@ -30,6 +30,11 @@ namespace TDD
 
             return vehicles.Average(v => v.Year);
         }
+        public List<Vehicle> GetAllVehicles()
+        {
+            return vehicles;
+        }
+
 
 
     }
