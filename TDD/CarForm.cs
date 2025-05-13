@@ -64,6 +64,24 @@ namespace TDD
 
         }
 
+        private void btnFillRandom_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+
+            txtCarNumber.Text = rnd.Next(10000, 99999).ToString();
+
+            string[] models = { "ModelX", "Civic", "Corolla", "Focus", "i30" };
+            txtModel.Text = models[rnd.Next(models.Length)];
+
+            string[] companies = { "Toyota", "Honda", "Ford", "Hyundai", "Chevrolet" };
+            txtCompany.Text = companies[rnd.Next(companies.Length)];
+
+            cmbYear.SelectedIndex = rnd.Next(cmbYear.Items.Count);
+
+            cmbType.SelectedIndex = rnd.Next(cmbType.Items.Count);
+
+            cmbStatus.SelectedIndex = rnd.Next(cmbStatus.Items.Count);
+        }
     }
 }
 

@@ -41,6 +41,7 @@
             this.txtCarNumber = new System.Windows.Forms.TextBox();
             this.txtModel = new System.Windows.Forms.TextBox();
             this.txtCompany = new System.Windows.Forms.TextBox();
+            this.btnFillRandom = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -73,7 +74,7 @@
             // cmbYear
             // 
             this.cmbYear.FormattingEnabled = true;
-            this.cmbYear.Location = new System.Drawing.Point(329, 207);
+            this.cmbYear.Location = new System.Drawing.Point(262, 199);
             this.cmbYear.Name = "cmbYear";
             this.cmbYear.Size = new System.Drawing.Size(121, 24);
             this.cmbYear.TabIndex = 3;
@@ -108,7 +109,7 @@
             // cmbType
             // 
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(339, 266);
+            this.cmbType.Location = new System.Drawing.Point(262, 247);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(121, 24);
             this.cmbType.TabIndex = 7;
@@ -116,7 +117,7 @@
             // cmbStatus
             // 
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(380, 325);
+            this.cmbStatus.Location = new System.Drawing.Point(262, 302);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(121, 24);
             this.cmbStatus.TabIndex = 8;
@@ -133,30 +134,41 @@
             // 
             // txtCarNumber
             // 
-            this.txtCarNumber.Location = new System.Drawing.Point(296, 57);
+            this.txtCarNumber.Location = new System.Drawing.Point(262, 51);
             this.txtCarNumber.Name = "txtCarNumber";
-            this.txtCarNumber.Size = new System.Drawing.Size(100, 22);
+            this.txtCarNumber.Size = new System.Drawing.Size(121, 22);
             this.txtCarNumber.TabIndex = 10;
             // 
             // txtModel
             // 
-            this.txtModel.Location = new System.Drawing.Point(296, 104);
+            this.txtModel.Location = new System.Drawing.Point(262, 105);
             this.txtModel.Name = "txtModel";
-            this.txtModel.Size = new System.Drawing.Size(100, 22);
+            this.txtModel.Size = new System.Drawing.Size(121, 22);
             this.txtModel.TabIndex = 11;
             // 
             // txtCompany
             // 
-            this.txtCompany.Location = new System.Drawing.Point(310, 153);
+            this.txtCompany.Location = new System.Drawing.Point(262, 147);
             this.txtCompany.Name = "txtCompany";
-            this.txtCompany.Size = new System.Drawing.Size(100, 22);
+            this.txtCompany.Size = new System.Drawing.Size(121, 22);
             this.txtCompany.TabIndex = 12;
+            // 
+            // btnFillRandom
+            // 
+            this.btnFillRandom.Location = new System.Drawing.Point(216, 389);
+            this.btnFillRandom.Name = "btnFillRandom";
+            this.btnFillRandom.Size = new System.Drawing.Size(75, 23);
+            this.btnFillRandom.TabIndex = 13;
+            this.btnFillRandom.Text = "Fill Random";
+            this.btnFillRandom.UseVisualStyleBackColor = true;
+            this.btnFillRandom.Click += new System.EventHandler(this.btnFillRandom_Click);
             // 
             // CarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnFillRandom);
             this.Controls.Add(this.txtCompany);
             this.Controls.Add(this.txtModel);
             this.Controls.Add(this.txtCarNumber);
@@ -193,5 +205,6 @@
         private System.Windows.Forms.TextBox txtCarNumber;
         private System.Windows.Forms.TextBox txtModel;
         private System.Windows.Forms.TextBox txtCompany;
+        private System.Windows.Forms.Button btnFillRandom;
     }
 }
