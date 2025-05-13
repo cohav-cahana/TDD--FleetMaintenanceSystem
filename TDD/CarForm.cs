@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace TDD
 {
@@ -47,6 +48,16 @@ namespace TDD
                 if (!int.TryParse(txtCarNumber.Text, out int id))
                 {
                     MessageBox.Show("מספר רכב לא חוקי. הזיני רק מספרים.");
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(txtModel.Text) || string.IsNullOrWhiteSpace(txtCompany.Text))
+                {
+                    MessageBox.Show("נא לא להשאיר שדה ריק.");
+                    return;
+                }
+                if (!Regex.IsMatch(txtModel.Text, @"^[a-zA-Zא-ת\s]+$") || !Regex.IsMatch(txtCompany.Text, @"^[a-zA-Zא-ת\s]+$"))
+                {
+                    MessageBox.Show("נא להזין רק אותיות (ללא מספרים או תווים מיוחדים) בשם הדגם ובשם היצרן.");
                     return;
                 }
 
