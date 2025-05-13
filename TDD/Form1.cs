@@ -25,25 +25,7 @@ namespace TDD
 
         }
 
-        private void btn_all_cars_Click(object sender, EventArgs e)
-        {
-            List<Vehicle> vehicles = manager.GetAllVehicles();
-
-            if (vehicles.Count == 0)
-            {
-                MessageBox.Show("No vehicles found.");
-                return;
-            }
-            string message = "Vehicles in current manager:\n";
-            foreach (var v in manager.GetAllVehicles())
-            {
-                message += $"ID: {v.ID}, Model: {v.Model}, Year: {v.Year}\n";
-            }
-
-            MessageBox.Show(message);
-
-        }
-
+       
         private void Form1_Load(object sender, EventArgs e)
         {
             car_info.FlatStyle = FlatStyle.Flat;
@@ -52,16 +34,7 @@ namespace TDD
             car_info.Font = new Font("Segoe UI", 14);
             car_info.ForeColor = Color.Black;
 
-            // אותו דבר לשאר הכפתורים
-            track_random.FlatStyle = FlatStyle.Flat;
-            track_random.FlatAppearance.BorderSize = 0;
-            track_random.BackColor = Color.FromArgb(150, Color.White);
-            track_random.Font = new Font("Segoe UI", 14);
-
-            btn_all_cars.FlatStyle = FlatStyle.Flat;
-            btn_all_cars.FlatAppearance.BorderSize = 0;
-            btn_all_cars.BackColor = Color.FromArgb(150, Color.White);
-            btn_all_cars.Font = new Font("Segoe UI", 14);
+           
 
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.FlatAppearance.BorderSize = 0;
