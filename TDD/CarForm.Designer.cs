@@ -44,11 +44,13 @@
             this.btnFillRandom = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnShowReport = new System.Windows.Forms.Button();
+            this.exit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.label1.Location = new System.Drawing.Point(42, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 16);
@@ -76,7 +78,7 @@
             // cmbYear
             // 
             this.cmbYear.FormattingEnabled = true;
-            this.cmbYear.Location = new System.Drawing.Point(155, 196);
+            this.cmbYear.Location = new System.Drawing.Point(181, 191);
             this.cmbYear.Name = "cmbYear";
             this.cmbYear.Size = new System.Drawing.Size(121, 24);
             this.cmbYear.TabIndex = 3;
@@ -111,7 +113,7 @@
             // cmbType
             // 
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(155, 242);
+            this.cmbType.Location = new System.Drawing.Point(181, 242);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(121, 24);
             this.cmbType.TabIndex = 7;
@@ -119,7 +121,7 @@
             // cmbStatus
             // 
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(155, 299);
+            this.cmbStatus.Location = new System.Drawing.Point(181, 299);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(121, 24);
             this.cmbStatus.TabIndex = 8;
@@ -136,21 +138,21 @@
             // 
             // txtCarNumber
             // 
-            this.txtCarNumber.Location = new System.Drawing.Point(155, 57);
+            this.txtCarNumber.Location = new System.Drawing.Point(181, 57);
             this.txtCarNumber.Name = "txtCarNumber";
             this.txtCarNumber.Size = new System.Drawing.Size(121, 22);
             this.txtCarNumber.TabIndex = 10;
             // 
             // txtModel
             // 
-            this.txtModel.Location = new System.Drawing.Point(155, 105);
+            this.txtModel.Location = new System.Drawing.Point(181, 105);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(121, 22);
             this.txtModel.TabIndex = 11;
             // 
             // txtCompany
             // 
-            this.txtCompany.Location = new System.Drawing.Point(155, 150);
+            this.txtCompany.Location = new System.Drawing.Point(181, 150);
             this.txtCompany.Name = "txtCompany";
             this.txtCompany.Size = new System.Drawing.Size(121, 22);
             this.txtCompany.TabIndex = 12;
@@ -169,15 +171,15 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(361, 19);
+            this.listBox1.Location = new System.Drawing.Point(361, 67);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(427, 356);
+            this.listBox1.Size = new System.Drawing.Size(427, 308);
             this.listBox1.TabIndex = 14;
             this.listBox1.Visible = false;
             // 
             // btnShowReport
             // 
-            this.btnShowReport.Location = new System.Drawing.Point(626, 389);
+            this.btnShowReport.Location = new System.Drawing.Point(626, 12);
             this.btnShowReport.Name = "btnShowReport";
             this.btnShowReport.Size = new System.Drawing.Size(162, 39);
             this.btnShowReport.TabIndex = 15;
@@ -185,11 +187,23 @@
             this.btnShowReport.UseVisualStyleBackColor = true;
             this.btnShowReport.Click += new System.EventHandler(this.btnShowReport_Click);
             // 
+            // exit
+            // 
+            this.exit.Location = new System.Drawing.Point(617, 389);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(122, 39);
+            this.exit.TabIndex = 16;
+            this.exit.Text = "button1";
+            this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
             // CarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::TDD.Properties.Resources.car_back;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.exit);
             this.Controls.Add(this.btnShowReport);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnFillRandom);
@@ -206,6 +220,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CarForm";
             this.Text = "CarForm";
             this.Load += new System.EventHandler(this.CarForm_Load);
@@ -232,5 +247,6 @@
         private System.Windows.Forms.Button btnFillRandom;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnShowReport;
+        private System.Windows.Forms.Button exit;
     }
 }
