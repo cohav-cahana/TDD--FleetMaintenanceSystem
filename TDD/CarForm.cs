@@ -139,12 +139,6 @@ namespace TDD
 
             listBox1.Visible = true; 
 
-            if (sortedVehicles.Count == 0)
-            {
-                MessageBox.Show("אין רכבים להצגה בדוח.");
-                return;
-            }
-
             foreach (var v in sortedVehicles)
             {
                 listBox1.Items.Add($"{v.ID} | {v.Model} | {v.Manufacturer} | {v.Year} | {v.Type} | {v.MaintenanceStatus}");
