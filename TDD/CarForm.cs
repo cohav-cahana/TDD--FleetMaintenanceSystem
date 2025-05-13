@@ -30,6 +30,12 @@ namespace TDD
             cmbType.Items.AddRange(new string[] { "Bus", "Truck", "Van", "Private" });
             cmbStatus.Items.AddRange(new string[] { "Fixed", "Needs Repair" });
 
+            string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),"fleet.csv");
+
+            if (File.Exists(filePath))
+            {
+                manager.LoadFromFile(filePath);
+            }
         }
 
         
@@ -104,6 +110,48 @@ namespace TDD
             cmbType.SelectedIndex = rnd.Next(cmbType.Items.Count);
 
             cmbStatus.SelectedIndex = rnd.Next(cmbStatus.Items.Count);
+        }
+
+        private void btnShowReport_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear(); // ניקוי רשימה קודמת
+
+            var sortedVehicles = manager.SortByYearDescending(); // מיון לפי שנה
+
+            if (sortedVehicles.Count == 0)
+            {
+                MessageBox.Show("אין רכבים להצגה בדוח.");
+                return;
+            }
+
+            listBox1.Visible = true; // במקרה שהרשימה מוסתרת
+
+            if (sortedVehicles.Count == 0)
+            {
+                MessageBox.Show("אין רכבים להצגה בדוח.");
+                return;
+            }
+
+            // הצגת כל הרכבים
+            foreach (var v in sortedVehicles)
+            {
+                listBox1.Items.Add($"{v.ID} | {v.Model} | {v.Manufacturer} | {v.Year} | {v.Type} | {v.MaintenanceStatus}");
+            }
+
+            listBox1.Items.Add("--------------------------------------------------");
+
+            // סך הרכבים
+            int total = sortedVehicles.Count;
+
+            // ממוצע שנת ייצור
+            double average = manager.CalculateAverageYear();
+
+            // ספירת רכבים בסטטוס "Needs Repair"
+            int needRepairCount = sortedVehicles.Count(v => v.MaintenanceStatus == "Needs Repair");
+
+            listBox1.Items.Add($"סה\"כ רכבים: {total}");
+            listBox1.Items.Add($"ממוצע שנות ייצור: {average:F2}");
+            listBox1.Items.Add($"רכבים שדורשים תיקון: {needRepairCount}");
         }
     }
 }

@@ -42,12 +42,14 @@
             this.txtModel = new System.Windows.Forms.TextBox();
             this.txtCompany = new System.Windows.Forms.TextBox();
             this.btnFillRandom = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnShowReport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(111, 57);
+            this.label1.Location = new System.Drawing.Point(42, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 16);
             this.label1.TabIndex = 0;
@@ -56,7 +58,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(114, 111);
+            this.label2.Location = new System.Drawing.Point(42, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 16);
             this.label2.TabIndex = 1;
@@ -65,7 +67,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(111, 153);
+            this.label3.Location = new System.Drawing.Point(42, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 16);
             this.label3.TabIndex = 2;
@@ -74,7 +76,7 @@
             // cmbYear
             // 
             this.cmbYear.FormattingEnabled = true;
-            this.cmbYear.Location = new System.Drawing.Point(262, 199);
+            this.cmbYear.Location = new System.Drawing.Point(155, 196);
             this.cmbYear.Name = "cmbYear";
             this.cmbYear.Size = new System.Drawing.Size(121, 24);
             this.cmbYear.TabIndex = 3;
@@ -82,7 +84,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(126, 207);
+            this.label4.Location = new System.Drawing.Point(42, 199);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 16);
             this.label4.TabIndex = 4;
@@ -91,7 +93,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(129, 255);
+            this.label5.Location = new System.Drawing.Point(42, 250);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 16);
             this.label5.TabIndex = 5;
@@ -100,7 +102,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(130, 310);
+            this.label6.Location = new System.Drawing.Point(42, 302);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 16);
             this.label6.TabIndex = 6;
@@ -109,7 +111,7 @@
             // cmbType
             // 
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(262, 247);
+            this.cmbType.Location = new System.Drawing.Point(155, 242);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(121, 24);
             this.cmbType.TabIndex = 7;
@@ -117,16 +119,16 @@
             // cmbStatus
             // 
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(262, 302);
+            this.cmbStatus.Location = new System.Drawing.Point(155, 299);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(121, 24);
             this.cmbStatus.TabIndex = 8;
             // 
             // btnAddCar
             // 
-            this.btnAddCar.Location = new System.Drawing.Point(425, 389);
+            this.btnAddCar.Location = new System.Drawing.Point(12, 389);
             this.btnAddCar.Name = "btnAddCar";
-            this.btnAddCar.Size = new System.Drawing.Size(75, 23);
+            this.btnAddCar.Size = new System.Drawing.Size(162, 39);
             this.btnAddCar.TabIndex = 9;
             this.btnAddCar.Text = "ADD CAR";
             this.btnAddCar.UseVisualStyleBackColor = true;
@@ -134,40 +136,62 @@
             // 
             // txtCarNumber
             // 
-            this.txtCarNumber.Location = new System.Drawing.Point(262, 51);
+            this.txtCarNumber.Location = new System.Drawing.Point(155, 57);
             this.txtCarNumber.Name = "txtCarNumber";
             this.txtCarNumber.Size = new System.Drawing.Size(121, 22);
             this.txtCarNumber.TabIndex = 10;
             // 
             // txtModel
             // 
-            this.txtModel.Location = new System.Drawing.Point(262, 105);
+            this.txtModel.Location = new System.Drawing.Point(155, 105);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(121, 22);
             this.txtModel.TabIndex = 11;
             // 
             // txtCompany
             // 
-            this.txtCompany.Location = new System.Drawing.Point(262, 147);
+            this.txtCompany.Location = new System.Drawing.Point(155, 150);
             this.txtCompany.Name = "txtCompany";
             this.txtCompany.Size = new System.Drawing.Size(121, 22);
             this.txtCompany.TabIndex = 12;
             // 
             // btnFillRandom
             // 
-            this.btnFillRandom.Location = new System.Drawing.Point(216, 389);
+            this.btnFillRandom.Location = new System.Drawing.Point(193, 389);
             this.btnFillRandom.Name = "btnFillRandom";
-            this.btnFillRandom.Size = new System.Drawing.Size(75, 23);
+            this.btnFillRandom.Size = new System.Drawing.Size(162, 39);
             this.btnFillRandom.TabIndex = 13;
             this.btnFillRandom.Text = "Fill Random";
             this.btnFillRandom.UseVisualStyleBackColor = true;
             this.btnFillRandom.Click += new System.EventHandler(this.btnFillRandom_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(361, 19);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(427, 356);
+            this.listBox1.TabIndex = 14;
+            this.listBox1.Visible = false;
+            // 
+            // btnShowReport
+            // 
+            this.btnShowReport.Location = new System.Drawing.Point(626, 389);
+            this.btnShowReport.Name = "btnShowReport";
+            this.btnShowReport.Size = new System.Drawing.Size(162, 39);
+            this.btnShowReport.TabIndex = 15;
+            this.btnShowReport.Text = "Show Report";
+            this.btnShowReport.UseVisualStyleBackColor = true;
+            this.btnShowReport.Click += new System.EventHandler(this.btnShowReport_Click);
             // 
             // CarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnShowReport);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnFillRandom);
             this.Controls.Add(this.txtCompany);
             this.Controls.Add(this.txtModel);
@@ -206,5 +230,7 @@
         private System.Windows.Forms.TextBox txtModel;
         private System.Windows.Forms.TextBox txtCompany;
         private System.Windows.Forms.Button btnFillRandom;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnShowReport;
     }
 }
