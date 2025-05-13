@@ -116,17 +116,9 @@ namespace TDD
 
         private void btnShowReport_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear(); // ניקוי רשימה קודמת
+            listBox1.Items.Clear(); 
 
-            var sortedVehicles = manager.SortByYearDescending(); // מיון לפי שנה
-
-            if (sortedVehicles.Count == 0)
-            {
-                MessageBox.Show("אין רכבים להצגה בדוח.");
-                return;
-            }
-
-            listBox1.Visible = true; // במקרה שהרשימה מוסתרת
+            var sortedVehicles = manager.SortByYearDescending(); 
 
             if (sortedVehicles.Count == 0)
             {
@@ -134,7 +126,14 @@ namespace TDD
                 return;
             }
 
-            // הצגת כל הרכבים
+            listBox1.Visible = true; 
+
+            if (sortedVehicles.Count == 0)
+            {
+                MessageBox.Show("אין רכבים להצגה בדוח.");
+                return;
+            }
+
             foreach (var v in sortedVehicles)
             {
                 listBox1.Items.Add($"{v.ID} | {v.Model} | {v.Manufacturer} | {v.Year} | {v.Type} | {v.MaintenanceStatus}");
@@ -142,13 +141,10 @@ namespace TDD
 
             listBox1.Items.Add("--------------------------------------------------");
 
-            // סך הרכבים
             int total = sortedVehicles.Count;
 
-            // ממוצע שנת ייצור
             double average = manager.CalculateAverageYear();
 
-            // ספירת רכבים בסטטוס "Needs Repair"
             int needRepairCount = sortedVehicles.Count(v => v.MaintenanceStatus == "Needs Repair");
 
             listBox1.Items.Add($"סה\"כ רכבים: {total}");
