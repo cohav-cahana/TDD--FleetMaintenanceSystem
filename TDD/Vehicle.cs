@@ -67,32 +67,64 @@ namespace TDD
                 vehicles.Add(v);
             }
         }
+
+        /* public List<Vehicle> SortByYearDescending()
+         {
+             var sorted = vehicles.ToList(); 
+
+             var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
+             for (int i = 0; i < sorted.Count - 1; i++)
+             {
+                 for (int j = 0; j < sorted.Count - i - 1; j++)
+                 {
+                     if (sorted[j].Year < sorted[j + 1].Year)
+                     {
+                         var temp = sorted[j];
+                         sorted[j] = sorted[j + 1];
+                         sorted[j + 1] = temp;
+                     }
+                 }
+             }
+
+             stopwatch.Stop();
+             Console.WriteLine($"Sorting took {stopwatch.ElapsedMilliseconds} ms");
+
+             return sorted;
+         }*/
+
         public List<Vehicle> SortByYearDescending()
         {
-            var sorted = vehicles.ToList(); 
+            var sorted = vehicles.ToList();
 
             var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
             for (int i = 0; i < sorted.Count - 1; i++)
             {
-                for (int j = 0; j < sorted.Count - i - 1; j++)
+                int maxIndex = i;
+                for (int j = i + 1; j < sorted.Count; j++)
                 {
-                    if (sorted[j].Year < sorted[j + 1].Year)
+                    if (sorted[j].Year > sorted[maxIndex].Year)
                     {
-                        var temp = sorted[j];
-                        sorted[j] = sorted[j + 1];
-                        sorted[j + 1] = temp;
+                        maxIndex = j;
                     }
+                }
+
+                if (maxIndex != i)
+                {
+                    var temp = sorted[i];
+                    sorted[i] = sorted[maxIndex];
+                    sorted[maxIndex] = temp;
                 }
             }
 
-            stopwatch.Stop();
+                stopwatch.Stop();
             Console.WriteLine($"Sorting took {stopwatch.ElapsedMilliseconds} ms");
 
             return sorted;
+            
         }
-
-
     }
 }
+    
 

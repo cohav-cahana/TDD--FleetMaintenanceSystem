@@ -30,7 +30,8 @@ namespace TDD
             cmbType.Items.AddRange(new string[] { "Bus", "Truck", "Van", "Private" });
             cmbStatus.Items.AddRange(new string[] { "Fixed", "Needs Repair" });
 
-            string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),"fleet.csv");
+            string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+      "fleet.csv");
 
             if (File.Exists(filePath))
             {
@@ -91,6 +92,7 @@ namespace TDD
             {
                 MessageBox.Show("אירעה שגיאה: " + ex.Message);
             }
+
         }
 
         private void btnFillRandom_Click(object sender, EventArgs e)
