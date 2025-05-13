@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,34 +35,56 @@ namespace TDD
         
             private void btnAddCar_Click(object sender, EventArgs e)
         {
-            string id = txtCarNumber.Text;
-            string model = txtModel.Text;
-            string company = txtCompany.Text;
-            int year = (int)cmbYear.SelectedItem;
-            string type = cmbType.SelectedItem.ToString();
-            string status = cmbStatus.SelectedItem.ToString();
-
-            Vehicle newVehicle = new Vehicle
+            try
             {
-                ID = int.Parse(id),
-                Model = model,
-                Manufacturer = company,
-                Year = year,
-                Type = type,
-                MaintenanceStatus = status
-            };
+                if (!int.TryParse(txtCarNumber.Text, out int id))
+                {
+                    MessageBox.Show("מספר רכב לא חוקי. הזיני רק מספרים.");
+                    return;
+                }
 
-            manager.AddVehicle(newVehicle);
+                if (cmbYear.SelectedItem == null || cmbType.SelectedItem == null || cmbStatus.SelectedItem == null)
+                {
+                    MessageBox.Show("יש לבחור שנה, סוג רכב וסטטוס.");
+                    return;
+                }
 
-            MessageBox.Show("Vehicle added successfully!");
-            txtCarNumber.Text = "";
-            txtModel.Text = "";
-            txtCompany.Text = "";
-            cmbYear.SelectedIndex = -1;
-            cmbType.SelectedIndex = -1;
-            cmbStatus.SelectedIndex = -1;
+                if (manager.GetAllVehicles().Any(car => car.ID == id))
+                {
+                    MessageBox.Show("רכב עם מספר זה כבר קיים!");
+                    return;
+                }
 
+                Vehicle newVehicle = new Vehicle
+                {
+                    ID = id,
+                    Model = txtModel.Text,
+                    Manufacturer = txtCompany.Text,
+                    Year = (int)cmbYear.SelectedItem,
+                    Type = cmbType.SelectedItem.ToString(),
+                    MaintenanceStatus = cmbStatus.SelectedItem.ToString()
+                };
 
+                manager.AddVehicle(newVehicle);
+
+                string filePath = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                    "fleet.csv");
+                manager.SaveToFile(filePath);
+
+                MessageBox.Show("הרכב נוסף ונשמר לקובץ!");
+
+                txtCarNumber.Text = "";
+                txtModel.Text = "";
+                txtCompany.Text = "";
+                cmbYear.SelectedIndex = -1;
+                cmbType.SelectedIndex = -1;
+                cmbStatus.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("אירעה שגיאה: " + ex.Message);
+            }
         }
 
         private void btnFillRandom_Click(object sender, EventArgs e)

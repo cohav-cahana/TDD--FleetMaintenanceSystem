@@ -35,9 +35,9 @@
             // 
             // car_info
             // 
-            this.car_info.Location = new System.Drawing.Point(442, 66);
+            this.car_info.Location = new System.Drawing.Point(264, 99);
             this.car_info.Name = "car_info";
-            this.car_info.Size = new System.Drawing.Size(157, 33);
+            this.car_info.Size = new System.Drawing.Size(260, 64);
             this.car_info.TabIndex = 0;
             this.car_info.Text = "הזנת רכבים";
             this.car_info.UseVisualStyleBackColor = true;
@@ -45,18 +45,18 @@
             // 
             // track_random
             // 
-            this.track_random.Location = new System.Drawing.Point(442, 187);
+            this.track_random.Location = new System.Drawing.Point(264, 183);
             this.track_random.Name = "track_random";
-            this.track_random.Size = new System.Drawing.Size(135, 50);
+            this.track_random.Size = new System.Drawing.Size(260, 64);
             this.track_random.TabIndex = 1;
             this.track_random.Text = "מעקב אחרי תחזוקה";
             this.track_random.UseVisualStyleBackColor = true;
             // 
             // btn_all_cars
             // 
-            this.btn_all_cars.Location = new System.Drawing.Point(369, 343);
+            this.btn_all_cars.Location = new System.Drawing.Point(264, 264);
             this.btn_all_cars.Name = "btn_all_cars";
-            this.btn_all_cars.Size = new System.Drawing.Size(182, 45);
+            this.btn_all_cars.Size = new System.Drawing.Size(260, 63);
             this.btn_all_cars.TabIndex = 2;
             this.btn_all_cars.Text = "הצגת כל הרכבים הקיימים";
             this.btn_all_cars.UseVisualStyleBackColor = true;
@@ -66,7 +66,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 450);
             this.Controls.Add(this.btn_all_cars);
             this.Controls.Add(this.track_random);
             this.Controls.Add(this.car_info);

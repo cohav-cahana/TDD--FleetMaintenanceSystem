@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,62 @@ namespace TDD
         {
             return vehicles;
         }
+        public void SaveToFile(string filePath)
+        {
+            using (var writer = new StreamWriter(filePath))
+            {
+                foreach (var v in vehicles)
+                {
+                    writer.WriteLine($"{v.ID},{v.Model},{v.Manufacturer},{v.Year},{v.Type},{v.MaintenanceStatus}");
+                }
+            }
+        }
 
+        public void LoadFromFile(string filePath)
+        {
+            if (!File.Exists(filePath)) return;
+
+            vehicles.Clear();
+            var lines = File.ReadAllLines(filePath);
+            foreach (var line in lines)
+            {
+                var parts = line.Split(',');
+                var v = new Vehicle
+                {
+                    ID = int.Parse(parts[0]),
+                    Model = parts[1],
+                    Manufacturer = parts[2],
+                    Year = int.Parse(parts[3]),
+                    Type = parts[4],
+                    MaintenanceStatus = parts[5]
+                };
+                vehicles.Add(v);
+            }
+        }
+        public List<Vehicle> SortByYearDescending()
+        {
+            var sorted = vehicles.ToList(); 
+
+            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
+            for (int i = 0; i < sorted.Count - 1; i++)
+            {
+                for (int j = 0; j < sorted.Count - i - 1; j++)
+                {
+                    if (sorted[j].Year < sorted[j + 1].Year)
+                    {
+                        var temp = sorted[j];
+                        sorted[j] = sorted[j + 1];
+                        sorted[j + 1] = temp;
+                    }
+                }
+            }
+
+            stopwatch.Stop();
+            Console.WriteLine($"Sorting took {stopwatch.ElapsedMilliseconds} ms");
+
+            return sorted;
+        }
 
 
     }
