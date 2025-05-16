@@ -206,9 +206,9 @@ namespace TDD
                     MessageBox.Show("נא לא להשאיר שדה ריק.");
                     return;
                 }
-                if (!Regex.IsMatch(txtModel.Text, @"^[a-zA-Zא-ת\s]+$") || !Regex.IsMatch(txtCompany.Text, @"^[a-zA-Zא-ת\s]+$"))
+                if (!Regex.IsMatch(txtCompany.Text, @"^[a-zA-Zא-ת\s]+$"))
                 {
-                    MessageBox.Show("נא להזין רק אותיות (ללא מספרים או תווים מיוחדים) בשם הדגם ובשם היצרן.");
+                    MessageBox.Show("נא להזין רק אותיות בשם היצרן.");
                     return;
                 }
 
